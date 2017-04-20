@@ -25,6 +25,10 @@ iptables –A FORWARD -i lo -o lo –m state -–state ESTABLISHED,RELATED –j 
 # PREMISSA 1: As consultas DNS recebidas pelo Firewall destinadas ao IP 177.30.20.11 deverão 
 # ser traduzidas e encaminhadas para o servidor Quilon (10.0.0.15);
 # Dica: Pesquise por DNAT e FORWARD
+iptables -A FORWARD -s 177.30.20.11 -p dns --dport 53 
+
+
+
 
 # PREMISSA 2: Considerando que o MX (Mail Exchanger) para o domínio TUXNET.COM.BR é o 
 # IP 177.30.20.12, as requisições para o servidor SMTP deverão ser traduzidas e encaminhadas 
